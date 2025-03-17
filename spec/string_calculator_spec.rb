@@ -41,4 +41,14 @@ RSpec.describe StringCalculator do
       expect(calculator.add("//#\n100#2")).to eq(102)
     end
   end
+
+  context 'when -ve numbers are present in the string' do
+    it 'raises error with single negtive number' do
+      expect { calculator.add("//;\n-100;2") }.to raise_error(StandardError, "negative numbers not allowed -100")
+    end
+
+    it 'raises error with multiple negative number' do
+      expect { calculator.add("//#\n-100#-2") }.to raise_error(StandardError, "negative numbers not allowed -100,-2")
+    end
+  end
 end
