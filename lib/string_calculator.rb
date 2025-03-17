@@ -1,4 +1,12 @@
 class StringCalculator
+
+  '''
+    Returns sum of values in input string
+
+    Args: input_string: string
+    Output: int
+
+  '''
   def add(input_string)
     return 0 if input_string.empty?
 
@@ -15,6 +23,7 @@ class StringCalculator
     [number_array, negative_number_array]
   end
 
+  # Raise/Remove Invalid Input Values
   def sanitize_input_array(number_array, negative_number_array)
     if negative_number_array.any?
       raise "negative numbers not allowed #{negative_number_array.join(',')}"
@@ -23,6 +32,7 @@ class StringCalculator
     number_array.select! { |num| num <= 1000 }
   end
 
+  # Single/Multiple Delimiter extraction
   def get_delimiter_and_string(input_string)
     delimiter = ','
     string_to_sum = input_string
