@@ -61,4 +61,14 @@ RSpec.describe StringCalculator do
       expect { calculator.add("//#\n-1000#-2") }.to raise_error(StandardError, "negative numbers not allowed -1000,-2")
     end
   end
+
+  context 'when delimiters of any size' do
+    it 'retuns the sum as 6 if delimiter is ***' do
+      expect(calculator.add("//***\n100***2")).to eq(102)
+    end
+
+    it 'retuns the sum as 6 if delimiter is #####' do
+      expect(calculator.add("//#####\n100#####2")).to eq(102)
+    end
+  end
 end
