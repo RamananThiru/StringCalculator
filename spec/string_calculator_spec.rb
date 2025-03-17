@@ -21,4 +21,14 @@ RSpec.describe StringCalculator do
       expect(calculator.add("100")).to eq(100)
     end
   end
+
+  context 'when , seperated numbers string is passed' do
+    it 'returns 6' do
+      expect(calculator.add("1,2,3")).to eq(6)
+    end
+
+    it 'returns 300' do
+      expect(calculator.add("100,100,100")).to eq(300)
+    end
+  end
 end
