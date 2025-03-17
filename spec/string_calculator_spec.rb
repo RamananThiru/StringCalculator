@@ -31,4 +31,14 @@ RSpec.describe StringCalculator do
       expect(calculator.add("100,100,100")).to eq(300)
     end
   end
+
+  context 'when custom delimiter is added' do
+    it 'returns the sum of numbers seperated by #' do
+      expect(calculator.add("//#\n1#2")).to eq(3)
+    end
+
+    it 'returns the sum of numbers  with more than 1 digit seperated by #' do
+      expect(calculator.add("//#\n100#2")).to eq(102)
+    end
+  end
 end
