@@ -23,5 +23,7 @@ class StringCalculator
     if negative_number_array.any?
       raise "negative numbers not allowed #{negative_number_array.join(',')}"
     end
+
+    number_array.select! { |num| num <= 1000 }
   end
 end
